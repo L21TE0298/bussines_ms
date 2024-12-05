@@ -62,7 +62,7 @@ public class RewardController {
         @PostMapping
         public ResponseEntity<?> register(@Valid @RequestBody Reward rews) {
                 rew.save(rews);
-                return new ResponseEntity<>("Reward add correctly", HttpStatus.OK);
+                return new ResponseEntity<>("Reward saved correctly", HttpStatus.OK);
         }
 
         // update

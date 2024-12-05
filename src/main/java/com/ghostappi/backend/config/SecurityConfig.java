@@ -17,10 +17,10 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeHttpRequests(
+        http.csrf(csrf -> csrf.disable()).authorizeHttpRequests(
                 auth -> auth.requestMatchers("/signin", "/signup").permitAll()
-                        .requestMatchers("/nutrients/**", "/products/**").hasRole("ADMIN")
-                        .requestMatchers("/wallets/**", "/cards/**").hasRole("USER")
+                        .requestMatchers("/points/**","/rewards/**","/coupons/**").hasRole("ADMIN")
+                        .requestMatchers("/wallets/**", "/cards/**","/shoppingcarts/**").hasRole("USER")
                         .anyRequest().authenticated())
                 .formLogin(withDefaults())
                 .rememberMe(withDefaults())

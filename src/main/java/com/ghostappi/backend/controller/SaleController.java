@@ -7,6 +7,7 @@ import com.ghostappi.backend.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 //import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 
@@ -24,12 +26,12 @@ import com.ghostappi.backend.service.SaleService;
 import com.ghostappi.backend.repository.UserRepository;
 
 
-// @RestController
-//@Validated
-// @RequestMapping("sales")
-// @CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.PUT })
-// @Validated
-// @Tag(name = "Sale Management", description = "Provides methods for managing sales")
+@RestController
+
+@RequestMapping("sales")
+@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.PUT })
+@Validated
+@Tag(name = "Sale Management", description = "Provides methods for managing sales")
 public class SaleController {
 
 	@Autowired
